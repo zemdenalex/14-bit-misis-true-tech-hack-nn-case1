@@ -1,24 +1,105 @@
 # 14-bit-truetech-case1
 Our solution for TrueTech hackathon
 
-1. pip install -r requirements.txt
-aiohttp
-aiohttp_cors
-scipy
-numpy
-transformers
-accelerate
-coqui-tts
-pydub
-simpleaudio
-langchain
-langchain_core
-langchain_huggingface
+# **TrueTechMTS_hack**
 
-2. python server.py
+# 1. Краткое описание:  
+_Проект разработан в рамках хакатона "Система Хак: Нижний Новгород
+" для заказчика МТС. Решает задачу повышения доступности онлайн-встреч и устранения языковых барьеров в образовании путем внедрения функций преобразования речи в текст, автоматического перевода и синтеза речи в режиме реального времени для онлайн трансляций._
 
-3. cd frontend
+---
 
-4. npm install
+# 2. Установка и запуск проекта
 
-5. npm run dev
+```bash
+git clone https://github.com/switchblxdee/TrueTechMTS_hack.git
+cd TrueTechMTS_hack
+
+# Установка зависимостей
+pip install -r requirements.txt
+
+# Запуск проекта
+python server.py
+```
+
+---
+
+# 3. Основной функционал проекта
+
+- Преобразование речи в текст в режиме реального времени через whisper large v3 turbo
+- Автоматический перевод текста между языками через ALMA 7B
+- Синтез речи из текста при помощи kokoroTTS и coqui-XTTSv2. Поддерживает 19 языков
+- Интеграция с ML-моделями для обработки естественного языка
+- Суммаризатор через YandexGPT
+- Передача данных через веб сокеты
+
+---
+
+# 4. Технологии и инструменты
+
+![Python](https://img.shields.io/badge/Python-3.10-blue?logo=python)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-15-blue?logo=postgresql)
+FastAPI
+---
+
+# 5. Команда проекта
+- [Калинин Алексей](https://github.com/ItamMigel) - Разработка ML-моделей
+- Быков Вадим - дизайн, презентация, питч
+- [Сергеев Даниил](https://github.com/DaniilSergeev17) - Разработка ML-моделей
+- [Гречин Егор](https://github.com/switchblxdee) - Разработка ML-моделей
+- [Земцов Денис](https://github.com/zemdenalex) - Фронтенд, Бэкенд
+
+---
+
+# 6. Архитектура и структура проекта
+
+```
+project-root/
+│
+├── .git/
+├── .gitattributes
+├── .gitignore
+├── README.md - описание
+├── requirements.txt - зависимости
+├── server.py - запуск основного скрипта
+├── transcription_server.py - сервис транскрибации
+├── translation.py - ALMA 7B для перевода
+├── prepare_for_summarization.py - суммаризация отрывков разговора
+├── link_to_server_to_check.txt - ссылка на сервер
+├── mock_server.py - моковый сервер для теста
+├── download_and_initialize_model.py - скачивание модели STT
+├── initialize_tts.py - инициализация TTS
+├── baseline_tts_with_if.py - скрипт TTS
+├── baseline_pipeline.py - работа STT
+└── screencast_link_to_video.txt - скринкаст сервиса
+```
+---
+
+# 7. Демонстрация работы проекта
+
+
+[Скринкаст](https://drive.google.com/drive/folders/1fhTvMn2twO0iX-jF0loy_0-w4jU5Q4Qy?usp=sharing)
+
+---
+
+# 8. Финальный текст-заключение
+
+Проект TrueTechMTS_hack представляет собой инновационное решение для повышения доступности онлайн-встреч и устранения языковых барьеров в образовании. Он отличается от аналогов следующими ключевыми особенностями:
+
+1. Интеграция функций преобразования речи в текст, автоматического перевода и синтеза речи в режиме реального времени
+2. Использование современных ML-моделей для обработки естественного языка
+3. Автоматизация рутинных задач, что повышает эффективность работы
+
+Возможные улучшения проекта:
+
+1. Расширение поддержки языков для перевода
+2. Улучшение точности распознавания речи
+3. Добавление возможности сохранения и анализа истории переводов
+4. Интеграция с популярными платформами для онлайн-встреч
+5. Улучшение пользовательского интерфейса для более удобного использования
+
+---
+
+# 9. Лицензия
+
+Этот проект распространяется под лицензией MIT.
